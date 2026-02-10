@@ -1,0 +1,2 @@
+[submodule "rofi/scripts/rofi-prompt"]
+	branch = main
