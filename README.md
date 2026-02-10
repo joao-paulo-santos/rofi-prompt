@@ -32,7 +32,7 @@ A rofi integration for AI agent prompts with a customizable result display windo
 
 4. Bind the menu to a key in your keybind config:
     ```bash
-    bind = $mainMod $mod3, Space, exec, $promptMenu
+    bind = $mainMod $mod3, Space, exec, $promptMenu # Super + Control + Space in my case
     ```
 
 ## Configuration
