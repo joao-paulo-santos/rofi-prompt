@@ -5,11 +5,9 @@ A rofi integration for AI agent prompts with a customizable result display windo
 ## Features
 
 - **Multiple AI Agents**: Supports OpenCode and Claude Code
-- **Auto-sizing Window**: Automatically adjusts window size based on content
 - **Minimal UI**: Clean, dark-themed interface with transparent close button
-- **Easy Configuration**: Simple environment variable to switch between agents
 
-## Installation
+## Example hyprland setup
 
 1. Clone this repository to your rofi scripts directory:
    ```bash
@@ -36,42 +34,6 @@ A rofi integration for AI agent prompts with a customizable result display windo
     ```bash
     bind = $mainMod $mod3, Space, exec, $promptMenu
     ```
-
-## Complete Hyprland Integration Example
-
-Here's a complete example for your Hyprland configuration files:
-
-### In `~/.config/hypr/hyprland.conf`
-
-```bash
-# Add this to the "MY PROGRAMS" section at the top
-$promptMenu = rofi -show prompt -modi "prompt:~/.config/rofi/scripts/rofi-prompt/rofi-prompt.js" -no-history -no-sort
-```
-
-### In `~/.config/hypr/hyprland.conf` (Window Rules)
-
-```bash
-# Add these window rules at the bottom with your other window rules
-windowrulev2 = float,class:^(prompt-result)$
-windowrulev2 = center,class:^(prompt-result)$
-windowrulev2 = keep_above,class:^(prompt-result)$
-windowrulev2 = pin,class:^(prompt-result)$
-windowrulev2 = noblur,class:^(prompt-result)$
-windowrulev2 = nodim,class:^(prompt-result)$
-```
-
-### In `~/.config/hypr/workspace-submap.conf` (Keybinds)
-
-```bash
-# Define modifiers (if not already defined)
-$mainMod = SUPER
-$mod3 = CTRL
-
-# Add this keybind to launch the rofi prompt menu
-bind = $mainMod $mod3, Space, exec, $promptMenu
-```
-
-With this configuration, press `SUPER + CTRL + Space` to open the rofi prompt menu.
 
 ## Configuration
 
@@ -114,6 +76,6 @@ const AGENTS = {
 1. Launch the rofi prompt menu
 2. Type your question or command
 3. Press Enter
-4. View results in the popup window
+4. View results in the popup window when they are ready
 
 The window automatically adjusts its size based on the content length and line count.
