@@ -33,9 +33,45 @@ A rofi integration for AI agent prompts with a customizable result display windo
    ```
 
 4. Bind the menu to a key in your keybind config:
-   ```bash
-   bind = $mainMod $mod3, Space, exec, $promptMenu
-   ```
+    ```bash
+    bind = $mainMod $mod3, Space, exec, $promptMenu
+    ```
+
+## Complete Hyprland Integration Example
+
+Here's a complete example for your Hyprland configuration files:
+
+### In `~/.config/hypr/hyprland.conf`
+
+```bash
+# Add this to the "MY PROGRAMS" section at the top
+$promptMenu = rofi -show prompt -modi "prompt:~/.config/rofi/scripts/rofi-prompt/rofi-prompt.js" -no-history -no-sort
+```
+
+### In `~/.config/hypr/hyprland.conf` (Window Rules)
+
+```bash
+# Add these window rules at the bottom with your other window rules
+windowrulev2 = float,class:^(prompt-result)$
+windowrulev2 = center,class:^(prompt-result)$
+windowrulev2 = keep_above,class:^(prompt-result)$
+windowrulev2 = pin,class:^(prompt-result)$
+windowrulev2 = noblur,class:^(prompt-result)$
+windowrulev2 = nodim,class:^(prompt-result)$
+```
+
+### In `~/.config/hypr/workspace-submap.conf` (Keybinds)
+
+```bash
+# Define modifiers (if not already defined)
+$mainMod = SUPER
+$mod3 = CTRL
+
+# Add this keybind to launch the rofi prompt menu
+bind = $mainMod $mod3, Space, exec, $promptMenu
+```
+
+With this configuration, press `SUPER + CTRL + Space` to open the rofi prompt menu.
 
 ## Configuration
 
